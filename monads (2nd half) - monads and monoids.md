@@ -1,4 +1,4 @@
-Welcome back. This is the second half of our misadventure towards **“A monad in category C is a monoid in the monoidal category of endofunctors in C”**. Last time we learnt about categories and functors, so at least a few of the concepts are understood. Let us begin by engaging the greatest vermin of functional programming – the **monad** – which has the reputation equivalent to Giant Steps in Jazz.
+Welcome back. This is the second half of our misadventure towards **“A monad in category C is a monoid in the monoidal category of endofunctors in C”**. Last time we learnt about categories and functors, so at least a few of the concepts are understood. Let us begin by engaging the greatest vermin of functional programming – the **monad** – which has the reputation equivalent to Giant Steps in jazz.
 
 # Motivating the monad
 
@@ -8,7 +8,7 @@ The concept of monad is jazzy but deceivingly simple. In functional programming,
 
 The classic example to motivate a monad is error handling. While in languages like Java there are constructs that capture exceptions and interrupt the program flow (`try`-`catch` blocks) at the expense of deeper indentation, the concept we outline below will be similarly usable (when you have had enough of `try`-`catch` or `throw`).
 
-Let’s begin with division. The division operation takes in a real number and spits out another – but there’s a catch. If the divisor is zero, division is not defined. Therefore, the function $f(x) = 1/x : \R \to \R$ is not really a function – it is not bijective, because it is not injective given that $f(x = 0)$ is undefined in the codomain. (Technically, division is not surjective either, because if $f(x) = 0$ you can’t find a corresponding $x$. Let’s focus on the domain for the time being.)
+Let’s begin with division. The division operation takes in a real number and spits out another – but there’s a catch. If the divisor is zero, division is not defined. Therefore, the function $f(x) = 1/x : \mathbb{R} \to \mathbb{R}$ is not really a function – it is not bijective, because it is not injective given that $f(x = 0)$ is undefined in the codomain. (Technically, division is not surjective either, because if $f(x) = 0$ you can’t find a corresponding $x$. Let’s focus on the domain for the time being.)
 
 ![Division as it is](./img/div_original.PNG)  
 _Division as it is._
@@ -165,7 +165,7 @@ Remember categories are a set of stuff (objects) and a set of arrows pointing be
 
 The **binary operation is a “tensor product”**, as a generalization of the (classical) Cartesian product though we can still consider it that way, and a bifunctor. Functors are mappings between categories, so a bifunctor maps from two categories to a third one. It scrambles pairs twice:
 
-- Pairs of objects in both categories are computed. For simplicity, we can consider a bifunctor $\Z \times \Z -> \Z$ (let’s say $\Z$ is the category of integers). It generates, as objects, all possible pairs of integers, e.g. $(1, 2)$ and $(9, 6)$.
+- Pairs of objects in both categories are computed. For simplicity, we can consider a bifunctor $\mathbb{Z} \times \mathbb{Z} -> \mathbb{Z}$ (let’s say $\mathbb{Z}$ is the category of integers). It generates, as objects, all possible pairs of integers, e.g. $(1, 2)$ and $(9, 6)$.
 - Pairs of morphisms are also computed. In our example, we can find things like $((1 \to 2), (3 \to 4))$ and $((14 \to 8), (-3 \to 3))$.
 - With our object pairs and morphism pairs, we technically have another category – the product category – as the domain of the bifunctor.
 - Depending on what bifunctor this is, we choose how to map from object pairs (or morphism pairs) to their respective destinations. Our example bifunctor can, specifically, choose to do multiplication, so object pair $(1, 2)$ goes to $2$, and $(9, 6)$ goes to $54$.
@@ -174,18 +174,18 @@ The **binary operation is a “tensor product”**, as a generalization of the (
 ![Bifunctor](./img/bifunctor.PNG)  
 _Understanding bifunctors, the illustration._
 
-**A monoidal category $C$ has a bifunctor (“tensor product”, denoted $\otimes$) $C \times C \to C$**, so that it corresponds to how classical monoids forms a closure in the set. **$C$ also has an object that is the unit (left and right identity, denoted $\bold{1}$ or $\bold{I}$) of the tensor product**. Hence the monoidal category is a three-tuple with $C$, $\otimes$, and unit. To ensure that the bifunctor respects identity and associativity laws (the monoid laws we saw), isomorphisms and diagrams to commute are introduced as law enforcement, but we won’t get into those.
+**A monoidal category $C$ has a bifunctor (“tensor product”, denoted $\otimes$) $C \times C \to C$**, so that it corresponds to how classical monoids forms a closure in the set. **$C$ also has an object that is the unit (left and right identity, denoted $\textbf{1}$ or $\textbf{I}$) of the tensor product**. Hence the monoidal category is a three-tuple with $C$, $\otimes$, and unit. To ensure that the bifunctor respects identity and associativity laws (the monoid laws we saw), isomorphisms and diagrams to commute are introduced as law enforcement, but we won’t get into those.
 
 This does not finish the definition of monoids in category theory. In category theory, they like to recursively define a higher-order concept to wrap something underneath (“vertical categorification” if you like jargon), which may be more specific. Individual monoids (“monoidal objects in a monoidal category”) that correspond to the classical ones are represented as objects in the category. **Not all objects in a monoidal category are necessarily a monoid**, however.
 
 Continuing the integer multiplication example, we note that the set of integers is an object in the set of sets – i.e. an object in the *category* of all sets. This category is, in turn, a monoidal category, where the tensor product $\otimes$ is our usual Cartesian product. This object (set of integers) happens to be a monoid, i.e. an *instance* of this monoid:
 
-- The **monoid object** is $\Z$, the set of integers, who is an object in the \[monoidal\] category of sets. $\Z$ is, in fewer words, a “monoid in the category of sets”.
-- $\Z$ is equipped with a “multiplication” morphism (denoted with Greek letter mu, $\mu$), which uses the category’s tensor product as $\mu : \Z \otimes \Z \to \Z$.
+- The **monoid object** is $\mathbb{Z}$, the set of integers, who is an object in the \[monoidal\] category of sets. $\mathbb{Z}$ is, in fewer words, a “monoid in the category of sets”.
+- $\mathbb{Z}$ is equipped with a “multiplication” morphism (denoted with Greek letter mu, $\mu$), which uses the category’s tensor product as $\mu : \mathbb{Z} \otimes \mathbb{Z} \to \mathbb{Z}$.
   - That is, $\mu$ calculates the Cartesian product – all integer pairs. Taking advantage of the ambiguity what to do next with the product, we say $\mu$ maps the pairs to the (integer) product, e.g. $(3, 23) \to 69$.
   - The result is, of course, inside the same set (the morphism points back to the same object).
-  - The transformation of morphisms on $\Z$ (not elements of $\Z$) occurs just as described above.
-- $\Z$ also has a “unit” morphism (denoted with eta, $\eta$), which converts the public unit element $\bold{I}$ to $\Z$.
+  - The transformation of morphisms on $\mathbb{Z}$ (not elements of $\mathbb{Z}$) occurs just as described above.
+- $\mathbb{Z}$ also has a “unit” morphism (denoted with eta, $\eta$), which converts the public unit element $\textbf{I}$ to $\mathbb{Z}$.
   - With this, we can enforce the monoid laws.
 
 One may notice that the monoidal category of sets contains all classical monoids.
@@ -193,7 +193,7 @@ One may notice that the monoidal category of sets contains all classical monoids
 ![The full monoid](./img/monoid.PNG)  
 _Monoid, in category theory terms. Do you rather wish to learn Turing tarpits?_
 
-Thus, to conclude, **a monoid in category $C$ refers to a monoid object $M$ in the monoidal category $C$, with two morphisms $\mu : M \otimes M \to M$ and $\eta : \bold{I} \to M$**. The morphisms refer to and enforce the monoidal structure of the monoidal category. The monoid is thus a three-tuple as well: $M$, $\mu$, and $\eta$.
+Thus, to conclude, **a monoid in category $C$ refers to a monoid object $M$ in the monoidal category $C$, with two morphisms $\mu : M \otimes M \to M$ and $\eta : \textbf{I} \to M$**. The morphisms refer to and enforce the monoidal structure of the monoidal category. The monoid is thus a three-tuple as well: $M$, $\mu$, and $\eta$.
 
 # Soldiering on to home in monads: Takeaways
 
@@ -209,6 +209,6 @@ Takeaways of this episode:
 - The monad is a design pattern that handles such contexts and effects using a special abstraction.
 - In set theory, a monoid is a three-tuple: a set, an associative binary operation, and an identity element for the operation in the set.
 - In programming, a data structure with monoid properties make for logical ways to aggregate over it.
-- In category theory, a monoidal category has a monoid-like structure (namely, a tensor product bifunctor $\otimes$ and a unit object $\bold{I}$), and contains actual instances of monoids as monoid objects.
-- Monoid objects are objects in a monoidal category that reflect the monoidal structure by having a $\mu$ morphism (using the tensor product $\otimes$) and an $\eta$ morphism (using the unit object $\bold{I}$); they represent the set theory monoids.
+- In category theory, a monoidal category has a monoid-like structure (namely, a tensor product bifunctor $\otimes$ and a unit object $\textbf{I}$), and contains actual instances of monoids as monoid objects.
+- Monoid objects are objects in a monoidal category that reflect the monoidal structure by having a $\mu$ morphism (using the tensor product $\otimes$) and an $\eta$ morphism (using the unit object $\textbf{I}$); they represent the set theory monoids.
  
