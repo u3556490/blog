@@ -200,4 +200,4 @@ Foodpanda? Wrong place. Important TLDRs:
 - An applicative functor is a data type that implements the `pure` and `apply` functions, so that `apply` can take care of functions inside a structure.
 - Programmers may consider the functor and the applicative design patterns of abstractions aiming to reduce boilerplate code.
 
-See you in the next episode lads and lassies
+See you in the [next episode](./monads%20(2nd%20half)%20-%20monads%20and%20monoids.md) lads and lassies

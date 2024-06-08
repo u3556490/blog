@@ -1,4 +1,4 @@
-Welcome back. This is the second half of our misadventure towards **“A monad in category C is a monoid in the monoidal category of endofunctors in C”**. Last time we learnt about categories and functors, so at least a few of the concepts are understood. Let us begin by engaging the greatest vermin of functional programming – the **monad** – which has the reputation equivalent to Giant Steps in jazz.
+Welcome back. This is the second half of our misadventure towards **“A monad in category C is a monoid in the monoidal category of endofunctors in C”**. [Last time](./monads%20(1st%20half)%20-%20functors%20and%20applicatives.md) we learnt about categories and functors, so at least a few of the concepts are understood. Let us begin by engaging the greatest vermin of functional programming – the **monad** – which has the reputation equivalent to Giant Steps in jazz.
 
 # Motivating the monad
 
@@ -201,7 +201,7 @@ Thus, to conclude, **a monoid in category $C$ refers to a monoid object $M$ in t
 
 Time is running out in this mathematical quagmire and we need a winning move to avoid suffocation. Luckily for us, the necessary vocabulary has been acquired. **Any monad in $C$ corresponds to a monoid object in the monoidal category containing all endofunctors of category $C$.** Therefore, monads satisfy the constraints of the monoid. Ok, that’s still a lot to take in, and we still need to relate this back to programming and the concepts we know before – oh, three whistles, the second half is over. We will need extra time.
 
-Let’s head back to the dressing room. Before we add extra time, see you, space cowboy, you’re gonna carry that mathematical weight.
+Let’s head back to the dressing room. Before we [add extra time](./monads%20(extra%20time)%20-%20monads%20step%20by%20step.md), see you, space cowboy, you’re gonna carry that mathematical weight.
 
 Takeaways of this episode:
 

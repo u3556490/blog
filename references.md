@@ -21,10 +21,14 @@ The following list (which you may treat as additional reading) may never be comp
 - [monoidal category in nLab](https://ncatlab.org/nlab/show/monoidal+category)
 - [natural transformation in nLab](https://ncatlab.org/nlab/show/natural+transformation)
 
+### HaskellWiki
+- [Hask](https://wiki.haskell.org/Hask)
+- [Monad laws](https://wiki.haskell.org/Monad_laws)
+
 ### Wikibooks
 - [Haskell/Applicative functors](https://en.wikibooks.org/wiki/Haskell/Applicative_functors)
 
-## Learn you a Haskell for Great Good: A community version
+## Learn You a Haskell for Great Good: A community version
 Link: [GitHub](https://github.com/learnyouahaskell/learnyouahaskell.github.io)
 
 Exact pages, sorted in chapter order:
