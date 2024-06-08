@@ -39,7 +39,7 @@ The world was a fine place where higher-order functions and functors were not ne
 
 Enter new concepts: composite data types, abstract data types, algebraic data types, whatever they may be. We shall focus on the array (or list) first: it composes a bunch of loose simple data into one object to manipulate. This introduces the issue that the simple operations no longer apply – how do you define “apply plus, minus, multiply etc. to a list”? It may be ambiguous: elementwise operation (e.g. add 1 to each number in the list)? List-wide operation (e.g. concatenating to lists)?
 
-When it comes to the former caes, trying to increment a list of numbers may end up looking like this:
+When it comes to the former case, trying to increment a list of numbers may end up looking like this:
 
 ```python
 my_list = [1,2,3]
@@ -107,7 +107,7 @@ _Looking under the hood how a functor works._
 
 Another way to view this is: The functor is pretty much almost a portal that brings wrapped values back to where they used to be, so the operations can take place. It’s kinda like the Fourier transform to some extent.
 
-The programming functor satisfies the four-tuple requirement in a hacky way: First of all, we can consider all data types in a programming language to live under a common category (this is hacky and wacky, there are theoretical challenges to this idea), so the source and destination categories are identical (this makes the functor an **endofunctor**). Then, the object conversion mechanism is satisfied by constructors of the new type. Finally, we manually define the `map` function to complete the picture.
+The programming functor satisfies the four-tuple requirement in a hacky way: First of all, we can consider all data types in a programming language to live under a common category (this is hacky and wacky, there are theoretical challenges to this idea), so the source and destination categories can be identical (this makes the functor an **endofunctor**) as long as the functor is parametrized / show genericism. That is, the `map` function shall convert morphisms in some plain type `a` to some functorial wrapper `F b`, in order to qualify as an endofunctor. Then, the object conversion mechanism is satisfied by constructors of the new type. Finally, we manually define the `map` function to complete the picture.
 
 To close this part, here’s a bit of Haskell to show the typed function signature of `map`:
 
@@ -185,7 +185,7 @@ We can thus say the applicative functor is **another design pattern** that is ex
 
 Finally, a quick proof that the applicative is a functor:
 
-- It converts between valid data types, so we can use the endofunctor trick here to set source and destination categories as “category of all data types”.  This is a weak statement, but based on `pure` we sorta know the data types (categories) we actually refer to.
+- It converts between valid data types, so we can use the endofunctor trick here to set source and destination categories as “category of all data types”. This is a weak statement, but based on `pure` we sorta know the data types (categories) we actually refer to - usually some parametrized type.
 - The `pure` function is an object converter.
 - `map` (morphism converter) can be defined from `apply`: (Haskell syntax) `map f x = apply (pure f) x`
   - Using `pure` we convert a plain function (`a -> b`) to a wrapped one, so it can slide into `apply`.
