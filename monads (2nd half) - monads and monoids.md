@@ -73,7 +73,7 @@ work x = let temp = x + 69
 ```
 
 Notice that we need to handle the unhappy path `Nothing` every time, and this adds much cognitive clutter to the code. Let’s separate this into its own function – just like how we created `map`.
- 
+
 ```haskell
 bind :: Maybe a -> (a -> Maybe b) ->  Maybe b
 bind m f = case m of
