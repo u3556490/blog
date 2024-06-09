@@ -59,7 +59,7 @@ This is just some dingus dummy code to show what could happen. Right off the bat
 invert :: Float -> Float
 invert 0 = 0
 invert x = x * -1
- 
+
 -- driver code. The second case-of can be inside the let block but you get the idea
 work :: Float -> Maybe Float
 work x = let temp = x + 69

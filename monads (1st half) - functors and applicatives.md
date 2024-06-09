@@ -69,13 +69,13 @@ The boilerplate that is cluttering the code here is obviously the for-loop: othe
 ```python
 def map(operation, array):
     return [operation(item) for item in array]
- 
+
 def scale_by_four(number):
     return number * 4
- 
+
 def abs(number):
     return number if number > 0 else number * -1
- 
+
 vector = [1,2,3]
 vector = map(scale_by_four, vector)
 vector = map(abs, vector)
@@ -135,7 +135,7 @@ def outside(argument1):
     def inside(argument2):
         operate(argument1, argument2)  # this means we do something to the two arguments, which are in scope.
    return inside
- 
+
 outside(x)(y)
 ```
 
@@ -143,9 +143,9 @@ The last line is juicy: `outside(x)` simply returns a callable function, which w
 
 ```python
 from functools import partial
- 
+
 def operate(argument1, argument2): ...  # some function
- 
+
 fixed = partial(operate, argument1=x)
 fixed(argument2=y)
 ```

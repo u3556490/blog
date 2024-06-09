@@ -88,7 +88,7 @@ The mathematical monad laws are given as “coherence conditions”, which under
 
 The HaskellWiki provides a succinct presentation of the programming version of the laws, which we take for granted subconsciously when we use monads. Thus it is important to remain cautious when we write our own monads – we want to obey the monad laws.
 
-```Haskell
+```haskell
 -- identity: return function should be left and right identity of bind (>>=)
 -- left identity, x :: a, h :: a -> M b
 return x >>= h == h x
