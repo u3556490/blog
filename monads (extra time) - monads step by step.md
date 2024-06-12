@@ -135,7 +135,7 @@ The opposite – to define `apply` in terms of `bind` – is a bit more nuanced.
 -	The solution is to construct a makeshift anonymous function. It takes some function `g` and maps it to `m`. The magic is when this is given to `bind`, `bind` supplies the unwrapped plain function into `g`.
 
 # Takeaways
-The game to conquer monads has been won, but there is a crowd outside wanting to see a penalty shootout anyway. The practicality of certain monads (especially those present in Haskell parlance) may not be obvious, and we still have some questions left unanswered, such as whether functions are really monads. In any case, the day is won, unless you’re a member of that crowd you can go now.
+The game to conquer monads has been won, but there is a crowd outside wanting to see a [penalty shootout](./monads%20(penalties).md) anyway. The practicality of certain monads (especially those present in Haskell parlance) may not be obvious, and we still have some questions left unanswered, such as whether functions are really monads. In any case, the day is won, unless you’re a member of that crowd you can go now.
 
 A recap of how far we’ve come:
 
