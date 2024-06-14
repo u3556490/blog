@@ -543,6 +543,20 @@ A monad is a monoid in the category of endofunctors, but when we also consider t
 - Monad transformers  
 This happens when you want to wrap a monad in another to get the behaviour of both, e.g. an `IO` wrapping a `Maybe`. Monad transformers allow this wrapping and result in a new monad, with its own `bind` function to take care of composition boilerplate.
 
+- Comonads  
+In programming, comonads capture the pattern where you happen to do things in the opposite direction of a monad. In math they are called the categorical dual of a monad. But basically a comonad is any data type that implements two functions `extract` and `extend` as shown below. You can say `extract` consumes values from computations with a context while `return` puts values into contexts.  
+```haskell
+-- a.k.a. counit, copure, coreturn etc.
+extract :: Comonad M => M a -> a
+-- alternatively, extend :: Comonad M => (M a -> b) -> M a -> M b
+(=>>) :: Comonad M => M a -> (M a -> b) -> M b
+-- if you don't like "extend" you can have this instead (a.k.a. duplicate):
+cojoin :: Comonad M => M a -> M (M a)
+```
+
+- Underlying endofunctors of (co)monads  
+Each monad is an endofunctor (again). As a result, the fancy monads we see for far have, in principle, corresponding endofunctors that underpin their behaviours. As a result, one logical next step to venture to is to check out what these functors are - but holy cow, they are on nLab and are by no means easy to understand. If you like math and mental abuse you can read the links [here](https://ncatlab.org/nlab/show/coreader+comonad#related_concepts). 
+
 ## Takeaways
 > *"Holy Shit!"* - Learn You a Haskell Community Version
 

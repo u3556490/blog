@@ -45,9 +45,12 @@ Exact pages, sorted in chapter order:
 
 ## Other websites and sources
 - [A Gentle Introduction to Haskell, Version 98: IO](https://www.haskell.org/tutorial/io.html)
+- [A Neighborhood of Infinity: Evaluating cellular automata is comonadic](http://blog.sigfpe.com/2006/12/evaluating-cellular-automata-is.html)
 - [A Monad is just a Monoid in the Category of Endofunctors — Let’s actually unravel this. - Medium](https://medium.com/@felix.kuehl/a-monad-is-just-a-monoid-in-the-category-of-endofunctors-lets-actually-unravel-this-f5d4b7dbe5d6)
 - [A monad is just a monoid in the category of endofunctors, what's the problem? - StackOverflow](https://stackoverflow.com/questions/3870088/a-monad-is-just-a-monoid-in-the-category-of-endofunctors-whats-the-problem)
 - [A monad is a monoid in the category of endofunctors. Whats the problem? #SoMe2 - YouTube](https://www.youtube.com/watch?v=ENo_B8CZNRQ)
+- [Comonads in everyday life. | fmap fix return](https://fmapfixreturn.wordpress.com/2008/07/09/comonads-in-everyday-life/)
+- [Conal Elliott: Sequences, streams, and segments](http://conal.net/blog/posts/sequences-streams-and-segments)
 - [Control.Monad.Reader (mmtl-0.1: Modular Monad transformer library) - Hackage](https://hackage.haskell.org/package/mmtl-0.1/docs/Control-Monad-Reader.html)
 - [Control.Monad.Reader (mtl-2.3.1: Monad classes for transformers, using functional dependencies) - Hackage](https://hackage.haskell.org/package/mtl-2.3.1/docs/Control-Monad-Reader.html)
 - [Dear Functional Bros](https://www.youtube.com/watch?v=nuML9SmdbJ4)
