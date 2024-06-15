@@ -538,13 +538,13 @@ From here on out there shouldn't be too many things about monad that will severe
 Continuation passing is a style of programming where you always (or just oftentimes) provide a callback when you call a function, so when it's done it will call that callback. This may occur when one wants to add flexibility in the code: Let's say we have a function of type `a -> b` and change it to `a -> c -> b` so a parameter can be supplied later, before we curry the `c` and get `a -> (c -> b)` (i.e. moving the `c` to the right hand side of the "`=`" sign in a Haskell function definition). The composition of similar functions generate a pattern captured by the continuation monad, which works quite like the monads we have seen today.
 
 - MonadPlus  
-A monad is a monoid in the category of endofunctors, but when we also consider the type they wrap, there is no guarantee that monoid-like behaviour is everywhere and free to use. That is, a type `a` can be a monoid when provided the suitable operation and identity, but the monads `m a` may not. Haskell has this "`MonadPlus`" thingy that introduces a binary operation `mplus :: m a -> m a -> m a` and an identity element `mzero` to define, so the monadic type is always a monoid as well.
+A monad is a monoid in the category of endofunctors (by virtue of *effect composition*, i.e. aggregating the effects of endofunctors), but when we also consider the type they wrap, there is no guarantee that monoid-like behaviour is everywhere and free to use. That is, a type `a` can be a monoid when provided the suitable operation and identity, but the monads `m a` may not. Haskell has this "`MonadPlus`" thingy that introduces a binary operation `mplus :: m a -> m a -> m a` and an identity element `mzero` to define, so the monadic type is always also a monoid (by way of *arbitrary* `mplus` - not to be confused with the monad's nature).
 
 - Monad transformers  
 This happens when you want to wrap a monad in another to get the behaviour of both, e.g. an `IO` wrapping a `Maybe`. Monad transformers allow this wrapping and result in a new monad, with its own `bind` function to take care of composition boilerplate.
 
 - Comonads  
-In programming, comonads capture the pattern where you happen to do things in the opposite direction of a monad. In math they are called the categorical dual of a monad. But basically a comonad is any data type that implements two functions `extract` and `extend` as shown below. You can say `extract` consumes values from computations with a context while `return` puts values into contexts.  
+In programming, comonads capture the pattern where you happen to do things in the opposite direction of a monad; this is known to be useful for stream-like data structures. In math they are called the categorical dual of a monad. But basically a comonad is any data type that implements two functions `extract` and `extend` as shown below. You can say `extract` consumes values from computations with a context while `return` puts values into contexts.  
 ```haskell
 -- a.k.a. counit, copure, coreturn etc.
 extract :: Comonad M => M a -> a
