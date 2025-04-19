@@ -11,6 +11,7 @@ Currently we have:
 - [Yet another monad tutorial](./yet_another_monad_tutorial/monads%20(1st%20half)%20-%20functors%20and%20applicatives.md)
 - [Text(s) about music](./music/)
   - [A love letter to contemporary art music](./music/letter-to-contemporary-art-music.md)
+  - [Useless adages and observations](./music/useless-adages.md)
 
 ## Contributions
 
